@@ -2214,13 +2214,13 @@ textarea {
 
 /* Footer */
 .footer{
-  background-color: #E75A8B;
-  color: #fff !important;
+  background-color: #D9D9D9;
+  color: #000 !important;
   font-size: 12px;
   padding: 10px;
 }
 footer > p {
-  color: #fff !important;
+  color: #1f1f1f !important;
   font-size: 12px;
 }
 
