@@ -102,7 +102,7 @@ function App() {
 
 
       </Switch>
-      <Menu />
+      {/* <Menu /> */}
       {/* <MenuDesktop /> */}
       <footer className='footer'>
         <p> Todos os direitos reservados &copy; 2024 - Dispositiva Seguros</p>
