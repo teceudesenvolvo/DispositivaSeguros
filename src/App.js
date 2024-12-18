@@ -40,7 +40,7 @@ import login from './screens/client/login';
 // Navigate Components
 import TopBar from '../src/componets/topBarSearch'
 import Menu from './componets/menu';
-import MenuDesktop from './componets/menuDesktop';
+// import MenuDesktop from './componets/menuDesktop';
 
 
 import testeGeneratePDF from './screens/testePage'
@@ -103,9 +103,9 @@ function App() {
 
       </Switch>
       <Menu />
-      <MenuDesktop />
+      {/* <MenuDesktop /> */}
       <footer className='footer'>
-        <p> Copyright &copy; 2023 - eudesenvolvo</p>
+        <p> Todos os direitos reservados &copy; 2024 - Dispositiva Seguros</p>
       </footer>
 
 

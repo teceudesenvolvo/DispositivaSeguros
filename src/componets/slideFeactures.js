@@ -71,10 +71,10 @@ class slideFeactures extends Component {
                     }
                 }
             >
-                <img class="imagDestaques" src={post.fotografia} alt=""></img>
+                <img class="imagDestaques"  alt=""></img>
                 <div class="DestaquesDescricao" >
-                    <h5>{post.nome_parlamentar}</h5> 
-                    <p>Partido: {post.partido}</p> 
+                    <h5>Marca Seguradora</h5> 
+                    <p>Tipo de Seguro</p> 
                 </div>
             </SplideSlide>
         )

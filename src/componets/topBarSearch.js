@@ -44,7 +44,7 @@ class topBar extends Component {
         return (
             <>
             <nav className={this.state.headerHome}>
-                <div className='header-home'>
+                <div className='header-home'> 
                     <p className='titleHeader'><img src={Logo} alt='Logomarca' onClick={()=> {window.location.href = "/"}}/></p>
                     {/* <input type="text" placeholder={`Pesquisar`} className='inputPesquisar' /> */}
                     {/* <FaSistrix className='PesquisarLogo' /> */}
