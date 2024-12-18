@@ -23,23 +23,23 @@ class Home extends Component {
 
         {/* Search */}
         
-          <Hero/>
+          {/* <Hero/> */}
 
 
-        <div className='conteinerHome'>
+        {/* <div className='conteinerHome'> */}
 
           {/* Carrosel */}
-          <p className='textoDestaques'>Destaques</p>
+          {/* <p className='textoDestaques'>Destaques</p> */}
 
-          <div className='HomeDesktopCarrosel'>
-            <SlideFeacures />
+          {/* <div className='HomeDesktopCarrosel'> */}
+            {/* <SlideFeacures /> */}
 
-          </div>
+          {/* </div> */}
           {/* Destaque Lista */}
-          <div className=''>
+          {/* <div className=''> */}
             {/* <ProductsList /> */}
-          </div>
-        </div>
+          {/* </div> */}
+        {/* </div> */}
       </div>
     );
   }
