@@ -33,13 +33,13 @@ class homeDashboard extends Component {
 
                     <div className='section-home-1'>
                         <h1>Faça sua cotação online</h1>
-                        <a href='/'>Agora mesmo</a>
+                        <a href='/'>Agora mesmo</a><br/>
                         <div className='balon-segurados'>
                             <div className='balon-left'>
                                 <p>Segurados</p>
                                 <h1>+4.000</h1>
                             </div>
-                            <div className='balon-rigt'>
+                            <div className='balon-right'>
                                 <p>A Dispositiva teve a oprtunidade de assegurar mais de 4.000 pessoas em todo o Brasil desde 2018.</p>
                             </div>
                         </div>

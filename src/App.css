@@ -30,7 +30,6 @@
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .headerDach{
@@ -39,6 +38,40 @@
   background-color: #E75A8B;
 }
 
+.balon-segurados{
+  width: 70%;
+  height: auto;
+  background-color: #E75A8B;
+  border-radius: 20px;
+  margin: 0 auto;
+  color: #fff !important;
+  display: inline-flex;
+  padding: 20px;
+}
+.balon-left{
+  text-align: left;
+  margin-left: 5%;
+  width: 40%;
+}
+.balon-right{
+  width: 50%;
+  text-align: left;
+}
+
+.balon-left>p{
+  color: white;
+  font-size: 15px ;
+}
+.balon-right>p{
+  margin-top: 21%;
+  color: white;
+  font-size: 20px ;
+}
+.balon-left>h1{
+  margin-top: 30px;
+  font-size: 100px;
+  font-style: italic;
+}
 
 .App-link {
   color: #FF740F;
