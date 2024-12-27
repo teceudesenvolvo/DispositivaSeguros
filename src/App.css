@@ -38,12 +38,38 @@
   background-color: #E75A8B;
 }
 
+.btnHome-lp{
+  width: 50%;
+  background-color: #2D92FD;
+  color: white;
+  padding: 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  margin: 0 auto;
+  
+}
+
+.section-home-1{
+  margin-top: 60px;
+  color: #E65A8A;
+}
+.section-home-1>h1{
+  font-size: 25px;
+  margin-bottom: -5px;
+}
+.section-home-1>a{
+  color: #E65A8A;
+  font-size: 15px;
+}
+
+
 .balon-segurados{
   width: 70%;
   height: auto;
   background-color: #E75A8B;
   border-radius: 20px;
-  margin: 0 auto;
+  margin: 40px auto;
   color: #fff !important;
   display: inline-flex;
   padding: 20px;
@@ -75,6 +101,117 @@
 
 .App-link {
   color: #FF740F;
+}
+
+
+.section-home-2>h1{
+  color: #818181;
+  font-size: 45px;
+  width: 50%;
+  margin: 0 auto;
+  font-family: 'Montserrat';
+  font-weight: 700;
+}
+.organize-arg-sec-2{
+  margin-top: 50px;
+  width: 90%;
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.arguments-section-2{
+  width: 33%;
+}
+.as2-number{
+  background-color: #2D92FD;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  text-align: center;
+  flex-direction: column;
+  align-content: center;
+  color: white;
+  border-radius: 10px;
+}
+.as2-number>h1{
+  font-size: 50px;
+}
+.arguments-section-2>h2{
+  font-size: 20px;
+}
+.arguments-section-2>p{
+  font-size: 16px;
+}
+.btnSec2{
+  background-color: #818181;
+  border: none;
+  font-size: 20px;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.section-home-3{
+  width: 70%;
+  margin: 0 auto;
+}
+.section-home-3>h1{
+  font-size: 35px;
+  font-family: 'Montserrat';
+  color: #2D92FD;
+}
+.section-home-3>h2{
+  font-size: 35px;
+  font-family: 'Montserrat';
+  color: #818181;
+}
+.section-home-3>p{
+  margin-top: -20px;
+  font-size: 18px;
+  font-family: 'Montserrat';
+  color: #818181;
+}
+
+.args-section-3{
+  width: 100%;
+  margin: 0 auto;
+  display: inline-flex;
+}
+
+.argAll-section-3{
+  margin: 10px;
+}
+.argAll-section-3>h3{
+  font-size: 20px;
+  margin-bottom: -12px;
+}
+.argAll-section-3>p{
+  font-size: 12px;
+}
+
+.section-home-4{
+  padding: 40px;
+  width: 90%;
+  margin: 0 auto;
+  display: inline-flex;
+}
+
+.title-section-4{
+  text-align: left;
+  width: 40%;
+}
+.title-section-4> h3{
+  font-size: 15px;
+  color: #E65A8A;
+}
+.title-section-4> h1{
+  font-size: 20px;
+  text-align: left;
+  margin-left: 0;
+}
+.title-section-4> p{
+  font-size: 15px;
 }
 
 .loginPage{
