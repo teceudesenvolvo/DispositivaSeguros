@@ -36,6 +36,66 @@
   width: 100%;
   height: 500px;
   background-color: #E75A8B;
+  display: inline-flex;
+}
+.headerTitle{
+  padding-top: 120px;
+  padding-left: 50px;
+  text-align: left;
+  width: 50%;
+}
+.headerTitle>h1{
+  font-size: 35px;
+  color: white;
+  font-size: 'Montserrat';
+  margin: 0;
+}
+.headerTitle>p{
+  font-size: 18px;
+  color: white;
+  font-size: 'Montserrat';
+}
+.segurosType{
+  display: inline-flex;
+}
+.segurosType>a{
+  background-color: #2D92FD;
+  padding: 20px 30px;
+  text-align: center;
+  flex-direction: column;
+  align-content: center;
+  margin: 0 15px 0 0;
+  border-radius: 10px;
+  color: white;
+  font-size: 50px;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+}
+.segurosType>a:hover{
+  box-shadow: 7px 7px rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+  transition: 0.3s all ;
+}
+.headerImg{
+  width: 50%;
+}
+.bgImg1{
+  position: absolute;
+  z-index: 1;
+  left: 58%;
+  top: 60px;
+  width: 25%;
+}
+.designBgImg1{
+  background-color: #2D92FD;
+  width: 253px;
+  height: 403px;
+  margin: 40px auto;
+  border-radius: 80px 56px 80px 68px ;
+  transform: rotate(-30deg);
+  border-bottom: 20px solid #0062C9;
+  border-right: 20px solid #0062C9;
+  border-left: 5px solid white;
+  border-top: 5px solid white;
 }
 
 .btnHome-lp{
@@ -182,6 +242,10 @@
 .argAll-section-3{
   margin: 10px;
 }
+.argAll-section-3>h2{
+  font-size: 70px;
+  margin-bottom: -12px;
+}
 .argAll-section-3>h3{
   font-size: 20px;
   margin-bottom: -12px;
@@ -193,6 +257,7 @@
 .section-home-4{
   padding: 40px;
   width: 90%;
+  height: 300px;
   margin: 0 auto;
   display: inline-flex;
 }
@@ -213,7 +278,12 @@
 .title-section-4> p{
   font-size: 15px;
 }
+.depoimentos{
+  background-color: #D9D9D9;
+  border-radius: 10px;
+  width: 60%;
 
+}
 .loginPage{
   background: #126B5E;
 }
@@ -908,12 +978,12 @@ video {
 }
 
 .splide__track { 
-  margin-top: -50px;
+  margin-top: 20px;
+  margin-left: -80px !important;
   overflow: hidden;
   position: relative;
   z-index: 0;
   width: 151%;
-  margin-left: -50px;
 }
 
 .slidesFeacture {
@@ -922,10 +992,9 @@ video {
   align-items: center;
   width: 132px !important;
   height: 220px !important;
-  background-color: #d9d9d9;
+  background-color: #ffffff;
   border-radius: 12px !important;
   margin-right: 10px !important;
-
 
 }
 
@@ -947,11 +1016,12 @@ video {
 .DestaquesDescricao {
   padding: 0 0 0 10px;
   text-align: left;
-  width: 93%;
-  height: 38%;
-  background-color: #d9d9d9 !important;
+  width: 180px;
+  height: 180px;
+  background-color: #fff !important;
   font-weight: bold;
-  border-radius: 0 0 10px 10px !important;
+  border-radius: 10px !important;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .DestaquesDescricao h5 {

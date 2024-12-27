@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 
 //Imagens
+import headerImg from '../../src/assets/header-img.png'
 
 // Icones
 import {
@@ -10,7 +11,11 @@ import {
     FaLock, 
     FaLaptop,
     FaRegGrinWink,
-    FaRegMoneyBillAlt 
+    FaRegMoneyBillAlt,
+    FaCarAlt,
+    FaHome,
+    FaHeartbeat,
+    FaPlane 
 
 } from 'react-icons/fa';
 
@@ -29,6 +34,20 @@ class homeDashboard extends Component {
             <div className='App-header' >
                 <div className='Home-Dach'>
                     <div className='headerDach'>
+                        <div className='headerTitle'>
+                            <h1>Você protegido por quem sempre se importa</h1>
+                            <p>Cote online o seu seguro</p>
+                            <div className='segurosType'>
+                                <a href='/'><FaCarAlt /></a >
+                                <a href='/'><FaHome /></a >
+                                <a href='/'><FaHeartbeat  /></a >
+                                <a href='/'><FaPlane  /></a >
+                            </div>
+                        </div>
+                        <div className='headerImg'>
+                            <img className='bgImg1' alt='imagem de homem apontando' src={headerImg} />
+                            <div className='designBgImg1'></div>
+                        </div>
                     </div>
 
                     <div className='HomeDesktopCarrosel'>
@@ -96,22 +115,22 @@ class homeDashboard extends Component {
                             </div>
                             <div className='argAll-section-3 arg-2-section-3'>
                                 <h2><FaLock/></h2>
-                                <h3>Rápido</h3>
+                                <h3>Seguro</h3>
                                 <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
                             </div>
                             <div className='argAll-section-3 arg-3-section-3'>
                                 <h2><FaLaptop/></h2>
-                                <h3>Rápido</h3>
+                                <h3>100% Digital</h3>
                                 <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
                             </div>
                             <div className='argAll-section-3 arg-4-section-3'>
                                 <h2><FaRegGrinWink/></h2>
-                                <h3>Rápido</h3>
+                                <h3>Humano</h3>
                                 <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
                             </div>
                             <div className='argAll-section-3 arg-5-section-3'>
                                 <h2><FaRegMoneyBillAlt/></h2>
-                                <h3>Rápido</h3>
+                                <h3>Econômico</h3>
                                 <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
                             </div>
                         </div>
