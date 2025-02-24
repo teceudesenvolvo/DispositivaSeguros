@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import axios from 'axios'
+
 
 // use Redux
 import { connect } from 'react-redux'
@@ -20,6 +20,12 @@ import '@splidejs/react-splide/css/sea-green';
 import '@splidejs/react-splide/css/core';
 
 //Imagen
+import ImgSeg1 from '../../src/assets/seguradora-1.png'
+import ImgSeg2 from '../../src/assets/seguradora-2.png'
+import ImgSeg3 from '../../src/assets/seguradora-3.png'
+import ImgSeg4 from '../../src/assets/seguradora-4.png'
+import ImgSeg5 from '../../src/assets/seguradora-5.png'
+import ImgSeg6 from '../../src/assets/seguradora-6.png'
 
 //mudança de páginas
 
@@ -27,31 +33,37 @@ class slideFeactures extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            posts: []
+            posts: [
+                {
+                    name: 'Seguradora 1',
+                    imagem: ImgSeg1
+                },
+                {
+                    name: 'Seguradora 1',
+                    imagem: ImgSeg2
+                },
+                {
+                    name: 'Seguradora 1',
+                    imagem: ImgSeg3
+                },
+                {
+                    name: 'Seguradora 1',
+                    imagem: ImgSeg4
+                },
+                {
+                    name: 'Seguradora 1',
+                    imagem: ImgSeg5
+                },
+                {
+                    name: 'Seguradora 1',
+                    imagem: ImgSeg6
+                },
+            ]
         }
     }
-    loadNoticias = async () => {
-        await axios.get(`https://sapl.saogoncalodoamarante.ce.leg.br/api/parlamentares/legislatura/19/parlamentares/?get_all=true`)
-            .catch(err => console.log(`o erro foi esse aqui: ${err}`))
-            .then(
-                res => {
-                const postsAll = res.data
-                let posts = []
-                for (let key in postsAll){
-                    posts.push({
-                        ...postsAll[key],
-                        id: key
-                    })
-                }
-                this.setState({posts: posts})
-                console.log(res.data)
-            })
-
-    }
+    
 
     componentDidMount(){
-        const loadPage = () => this.loadNoticias()
-        loadPage()
     }
 
 
@@ -71,10 +83,8 @@ class slideFeactures extends Component {
                     }
                 }
             >
-                <img class="imagDestaques"  alt=""></img>
                 <div class="DestaquesDescricao" >
-                    <h5>Marca Seguradora</h5> 
-                    <p>Tipo de Seguro</p> 
+                    <img class="imagDestaques" src={post.imagem} alt="logomarca seguradora"></img>
                 </div>
             </SplideSlide>
         )

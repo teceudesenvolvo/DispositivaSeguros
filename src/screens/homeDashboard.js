@@ -15,7 +15,8 @@ import {
     FaCarAlt,
     FaHome,
     FaHeartbeat,
-    FaPlane 
+    FaPlane,
+    FaWhatsapp 
 
 } from 'react-icons/fa';
 
@@ -32,16 +33,17 @@ class homeDashboard extends Component {
         return (
 
             <div className='App-header' >
+                    <div className='whatsapp'><FaWhatsapp/></div>
                 <div className='Home-Dach'>
                     <div className='headerDach'>
                         <div className='headerTitle'>
-                            <h1>Você protegido por quem sempre se importa</h1>
+                            <h1>Você protegido por quem <br/> sempre se importa</h1>
                             <p>Cote online o seu seguro</p>
                             <div className='segurosType'>
-                                <a href='/'><FaCarAlt /></a >
-                                <a href='/'><FaHome /></a >
-                                <a href='/'><FaHeartbeat  /></a >
-                                <a href='/'><FaPlane  /></a >
+                                <a href='/'><FaCarAlt /><br/> <p>Autos</p></a >
+                                <a href='/'><FaHome /><br/> <p>Residêncial</p> </a >
+                                <a href='/'><FaHeartbeat  /> <br/> <p>Vida</p> </a >
+                                <a href='/'><FaPlane  /><br/> <p>Viagem</p> </a >
                             </div>
                         </div>
                         <div className='headerImg'>

@@ -38,6 +38,28 @@
   background-color: #E75A8B;
   display: inline-flex;
 }
+.whatsapp{
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  flex-direction: column;
+  align-content: center;
+  color: white;
+  font-size: 40px;
+  background-color: #009D0B;
+  border-radius: 50%;
+  position: fixed;
+  left: 92%;
+  top: 80%;
+  border: 5px solid white;
+  z-index: 100;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  cursor: pointer;
+}
+.whatsapp:hover{
+  transform: scale(1.1);
+}
 .headerTitle{
   padding-top: 120px;
   padding-left: 50px;
@@ -60,7 +82,8 @@
 }
 .segurosType>a{
   background-color: #2D92FD;
-  padding: 20px 30px;
+  width: 140px;
+  height: 140px;
   text-align: center;
   flex-direction: column;
   align-content: center;
@@ -69,6 +92,12 @@
   color: white;
   font-size: 50px;
   box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+.segurosType>a>p{
+  color: white;
+  font-size: 10px;
+  text-decoration: none;
 }
 .segurosType>a:hover{
   box-shadow: 7px 7px rgba(0, 0, 0, 0.1);
