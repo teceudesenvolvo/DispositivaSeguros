@@ -15,14 +15,14 @@ import {
     FaCarAlt,
     FaHome,
     FaHeartbeat,
-    FaPlane,
-    FaWhatsapp 
+    FaPlane
 
 } from 'react-icons/fa';
 
 
 // Components
 import SlideFeacures from '../componets/slideFeactures';
+import Whatsapp from '../componets/whatsappIcon';
 // import { List } from '@mui/material';
 
 
@@ -30,10 +30,10 @@ import SlideFeacures from '../componets/slideFeactures';
 
 class homeDashboard extends Component {
     render() {
-        return (
+        return ( 
 
             <div className='App-header' >
-                    <div className='whatsapp'><FaWhatsapp/></div>
+                    <Whatsapp/>
                 <div className='Home-Dach'>
                     <div className='headerDach'>
                         <div className='headerTitle'>

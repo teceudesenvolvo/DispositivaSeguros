@@ -127,6 +127,24 @@
   border-top: 5px solid white;
 }
 
+.designQuemSomos{
+  background-color: #2D92FD;
+  width: 253px;
+  height: 403px;
+  margin: 40px auto;
+  border-radius: 120px 86px 120px 88px ;
+  transform: rotate(0deg);
+}
+
+.bgImgQuemSomos{
+  width: 253px;
+  height: 403px;
+  border-radius: 120px 86px 120px 88px ;
+  object-fit: cover;
+  height: 100%;
+  margin: 10px;
+}
+
 .btnHome-lp{
   width: 50%;
   background-color: #2D92FD;

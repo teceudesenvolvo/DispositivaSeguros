@@ -15,7 +15,6 @@ import {
 // Components
 import CustomizeDayPicker from "../../componets/CustomizeDayPicker";
 import SlideFotoServ  from '../../componets/slideFotoServ';
-import Horarios from '../../componets/horarios';
 import SlideFeacuresServ from '../../componets/slideFeacturesServ';
 
 
@@ -169,7 +168,6 @@ export default function Produto() {
             <Typography sx={{ color: '#000' }} variant="h6" component="div" >
               Selecionar horário do serviço
             </Typography>
-            <Horarios></Horarios>
           </div>
 
         </List>

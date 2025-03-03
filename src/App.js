@@ -9,7 +9,7 @@ import homeDashboard from '../src/screens/homeDashboard';
   // Páginas Principais
 import Sessoes from './screens/client/Sessoes';
 import Relatorios from './screens/client/Relatorios';
-import SessaoVirtual from './screens/client/SessaoVirtual';
+import QuemSomos from './screens/client/quemSomos';
 import NormasJuridicas from './screens/client/NormasJuridicas'
 import Comissoes from './screens/client/Comissoes'
   // News
@@ -64,7 +64,7 @@ function App() {
         {/*Menu Publico*/}
         <Route path="/Sessoes" component={Sessoes} />
         <Route path="/Relatorios" component={Relatorios} />
-        <Route path="/Sessao-Virtual" component={SessaoVirtual} />
+        <Route path="/quem-somos" component={QuemSomos} />
         <Route path="/Normas" component={NormasJuridicas} />
         <Route path="/Comissoes" component={Comissoes} />
         <Route path="/Materias" component={Materias} />
