@@ -127,6 +127,18 @@
   border-top: 5px solid white;
 }
 
+.section1-quem-somos{
+  width: 100%;
+  display: inline-flex;
+  align-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.section-side{
+  width: 50% !important;
+}
+
 .designQuemSomos{
   background-color: #2D92FD;
   width: 253px;
@@ -134,6 +146,10 @@
   margin: 40px auto;
   border-radius: 120px 86px 120px 88px ;
   transform: rotate(0deg);
+}
+.designColor{
+  background-color: #E75A8B;
+  transform: scaleX(-1);
 }
 
 .bgImgQuemSomos{
@@ -144,6 +160,22 @@
   height: 100%;
   margin: 10px;
 }
+
+.section-value{
+  margin-top: 0px;
+  margin-bottom: 50px;
+}
+
+.valores{
+  width: 200px;
+  height: 170px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 14px !important;
+}
+
 
 .btnHome-lp{
   width: 50%;
@@ -325,6 +357,7 @@
 .title-section-4> p{
   font-size: 15px;
 }
+
 .depoimentos{
   background-color: #D9D9D9;
   border-radius: 10px;

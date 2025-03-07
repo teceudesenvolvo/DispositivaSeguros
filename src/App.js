@@ -7,30 +7,15 @@ import { Switch, Route } from 'react-router-dom'
 import homeDashboard from '../src/screens/homeDashboard';
 
   // Páginas Principais
-import Sessoes from './screens/client/Sessoes';
-import Relatorios from './screens/client/Relatorios';
-import QuemSomos from './screens/client/quemSomos';
-import NormasJuridicas from './screens/client/NormasJuridicas'
-import Comissoes from './screens/client/Comissoes'
-  // News
 import Home from '../src/screens/home';
+import QuemSomos from './screens/client/quemSomos';
+
   // Páginas Secundárias
-import Materias from './screens/client/Materias';
-import Mais from './screens/client/Mais';
-import Servico from './screens/client/Servico';
-import Produto from './screens/client/Produto';
-import Carrinho from './screens/client/carrinho';
-import pagamento from './screens/client/pagamento';
-import Pesquisar from './screens/client/pesquisa';
+import SeguroVeiculos from './screens/client/seguroVeiculos';
 import Perfil from './screens/client/Perfil';
 
-import addMateria from './screens/addMaterias';
-import materiasDash from './screens/materiasDash';
-import registerDashboard from './screens/registerDashboard';
-import registerEndereco from './screens/registerEndereco';
-import registerLoja from './screens/resgisterLoja';
-import juizoMateria from './screens/juizoMateria';
-
+// Formulários
+import ContactPage from './screens/contact'
 
 // SingIn / SignUp
 import register from './screens/client/register';
@@ -43,8 +28,6 @@ import TopBar from '../src/componets/topBarSearch'
 // import MenuDesktop from './componets/menuDesktop';
 
 
-import testeGeneratePDF from './screens/testePage'
-
 
 function App() {
   return (
@@ -54,50 +37,17 @@ function App() {
       <Switch>
         {/* Página Principal */}
         <Route exact path="/" component={homeDashboard} />
+        <Route path="/quem-somos" component={QuemSomos} />
+        <Route path="/seguro-veiculos" component={SeguroVeiculos} />
         
+        {/* Perfis de Acesso */}
         <Route path="/login" component={login} />
         <Route path="/register" component={register} />
-
-        {/* Perfis de Acesso */}
         <Route path="/perfil" component={Perfil} />
-
-        {/*Menu Publico*/}
-        <Route path="/Sessoes" component={Sessoes} />
-        <Route path="/Relatorios" component={Relatorios} />
-        <Route path="/quem-somos" component={QuemSomos} />
-        <Route path="/Normas" component={NormasJuridicas} />
-        <Route path="/Comissoes" component={Comissoes} />
-        <Route path="/Materias" component={Materias} />
-
-        {/* Páginas Mobile */}
-        <Route path="/Mais" component={Mais} />
-        
-        {/* Páginas Filho */}
-        <Route path="/Servico" component={Servico} />
-        <Route path="/Produto" component={Produto} />
-        <Route path="/Carrinho" component={Carrinho} />
-        <Route path="/pesquisar" component={Pesquisar} />
-
-
-        
-        <Route path="/pagamento" component={pagamento} />
-        <Route path="/materias-dash" component={materiasDash} />
-
         
         {/* Páginas de Formulários */}
-        <Route path="/protocolar-materia" component={addMateria} />
-        <Route path="/registerDashboard" component={registerDashboard} />
-        <Route path="/registerEndereco" component={registerEndereco} />
-        <Route path="/juizo-materia" component={juizoMateria} />
-        <Route path="/registerLoja" component={registerLoja} />
+        <Route path="/protocolar-materia" component={ContactPage} />
         
-        
-        <Route path="/testePage" component={testeGeneratePDF} />
-
-
-
-
-
         <Route path="/novidades" component={Home} />
 
 
