@@ -104,6 +104,40 @@
   transform: scale(1.1);
   transition: 0.3s all ;
 }
+.headerPgSeguros{
+  background-color: #6E28BE !important;
+}
+
+.headerPgSeguros>p{
+  font-size: 17px;
+}
+
+.btnSeguros{
+  background-color: #E63888 !important;
+  width: auto !important;
+  padding: 10px 50px 10px 50px !important;
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.1);
+}
+.btnActionSeguros{
+  margin-top: 50px !important;
+
+}
+
+.imgSeguros{
+  object-fit: cover;
+  height: 450px;
+  width: 500px !important;
+}
+
+.section-seguros{
+  margin-top: 100px !important;
+  margin-bottom: 100px !important;
+}
+
+.argsSeguro{
+  background-color: #6E28BE !important;
+}
+
 .headerImg{
   width: 50%;
 }
@@ -186,7 +220,11 @@
   border: none;
   border-radius: 10px;
   margin: 0 auto;
-  
+  cursor: pointer;
+}
+.btnHome-lp:hover{
+  transform: scale(1.1);
+  transition: 0.3s all;
 }
 
 .section-home-1{
