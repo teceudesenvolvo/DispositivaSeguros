@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 
 //Imagens
-import headerImg from '../../../src/assets/seguroVeiculos.png'
+import headerImg from '../../../src/assets/seguroViagem.png'
 
 // Icones
 import {

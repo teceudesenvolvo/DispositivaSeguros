@@ -40,15 +40,15 @@ class homeDashboard extends Component {
                             <h1>Você protegido por quem <br/> sempre se importa</h1>
                             <p>Cote online o seu seguro</p>
                             <div className='segurosType'>
-                                <a href='/'><FaCarAlt /><br/> <p>Autos</p></a >
-                                <a href='/'><FaHome /><br/> <p>Residêncial</p> </a >
-                                <a href='/'><FaHeartbeat  /> <br/> <p>Vida</p> </a >
-                                <a href='/'><FaPlane  /><br/> <p>Viagem</p> </a >
+                                <a href='/seguro-veiculos'><FaCarAlt /><br/> <p>Autos</p></a >
+                                <a href='/seguro-residencial'><FaHome /><br/> <p>Residêncial</p> </a >
+                                <a href='/seguro-vida'><FaHeartbeat  /> <br/> <p>Vida</p> </a >
+                                <a href='/seguro-viagem'><FaPlane  /><br/> <p>Viagem</p> </a >
                             </div>
                         </div>
                         <div className='headerImg'>
                             <img className='bgImg1' alt='imagem de homem apontando' src={headerImg} />
-                            <div className='designBgImg1'></div>
+                           
                         </div>
                     </div>
 

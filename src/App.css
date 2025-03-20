@@ -104,8 +104,14 @@
   transform: scale(1.1);
   transition: 0.3s all ;
 }
-.headerPgSeguros{
+.backgroundColor1{
   background-color: #6E28BE !important;
+}
+.backgroundColor2{
+  background-color: #6FB4FE !important;
+}
+.backgroundColor3{
+  background-color: #fff !important;
 }
 
 .headerPgSeguros>p{
@@ -123,10 +129,20 @@
 
 }
 
+.headImgSeguros{
+  height: 100%;
+  align-items: end;
+}
+
 .imgSeguros{
   object-fit: cover;
   height: 450px;
   width: 500px !important;
+  
+}
+.imgSeguroResidencial{
+  display: table-cell;
+  vertical-align: bottom !important;
 }
 
 .section-seguros{
@@ -145,8 +161,8 @@
   position: absolute;
   z-index: 1;
   left: 58%;
-  top: 60px;
-  width: 25%;
+  top: 80px;
+  width: 35%;
 }
 .designBgImg1{
   background-color: #2D92FD;
@@ -1068,8 +1084,60 @@ video {
 .link-active {
   color: #00000065;
 }
+.divmenuitems{
+  display: inline;
+  width: 70%; 
+}
 
+.menuItens {
+  float: right;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+li {
+  float: left;
+}
 
+li a, .dropbtn {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  color: #6e28be;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 /* Slides */
 

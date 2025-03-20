@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 
 //Imagens
-import headerImg from '../../../src/assets/seguroVeiculos.png'
+import headerImg from '../../../src/assets/seguroResidencial.png'
 
 // Icones
 import {
@@ -29,13 +29,13 @@ class homeDashboard extends Component {
             <div className='App-header' >
                 <Whatsapp />
                 <div className='Home-Dach '>
-                    <div className='headerDach headerPgSeguros'>
+                    <div className='headerDach headerPgSeguros backgroundColor2'>
                         <div className='headerTitle headerPgSeguros'>
                             <h1>Seguro para o seu veiculo</h1>
                             <p>Mais proteção para o seu carro ou moto.</p>
                             <input type="button" className='btnHome-lp btnSeguros' value="Quero me proteger" />
                         </div>
-                        <div className='headerImg'>
+                        <div className='imgSeguroResidencial headImgSeguros'>
                             <img className='bgImg1 imgSeguros' alt='imagem de homem apontando' src={headerImg} />
 
                         </div>

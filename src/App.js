@@ -12,6 +12,9 @@ import QuemSomos from './screens/client/quemSomos';
 
   // Páginas Secundárias
 import SeguroVeiculos from './screens/client/seguroVeiculos';
+import seguroViagem from './screens/client/seguroViagem';
+import seguroVida from './screens/client/seguroVida';
+import seguroResidencial from './screens/client/seguroResidencial';
 import Perfil from './screens/client/Perfil';
 
 // Formulários
@@ -39,6 +42,9 @@ function App() {
         <Route exact path="/" component={homeDashboard} />
         <Route path="/quem-somos" component={QuemSomos} />
         <Route path="/seguro-veiculos" component={SeguroVeiculos} />
+        <Route path="/seguro-viagem" component={seguroViagem} />
+        <Route path="/seguro-vida" component={seguroVida} />
+        <Route path="/seguro-residencial" component={seguroResidencial} />
         
         {/* Perfis de Acesso */}
         <Route path="/login" component={login} />

@@ -43,13 +43,30 @@ class topBar extends Component {
     render() {
         return (
             <>
-            <nav className={this.state.headerHome}>
-                <div className='header-home'> 
-                    <p className='titleHeader'><img src={Logo} alt='Logomarca' onClick={()=> {window.location.href = "/"}}/></p>
-                    {/* <input type="text" placeholder={`Pesquisar`} className='inputPesquisar' /> */}
-                    {/* <FaSistrix className='PesquisarLogo' /> */}
-                </div>
-            </nav>
+                <nav className={this.state.headerHome}>
+                    <div className='header-home'>
+                        <p className='titleHeader'><img src={Logo} alt='Logomarca' onClick={() => { window.location.href = "/" }} /></p>
+                        <div className="divmenuitems" >
+                            <ul className="menuItens">
+                                <li><a href="/">Início</a></li>
+                                <li><a href="/quem-somos">Sobre nós</a></li>
+                                <li><a href="/contatos">Contatos</a></li>
+
+                                <li class="dropdown">
+                                    <a href="#seguros" class="dropbtn">Seguros</a>
+                                    <div class="dropdown-content">
+                                        <a href="/seguro-veiculos">Veicular</a>
+                                        <a href="/seguro-residencial">Residencial</a>
+                                        <a href="/seguro-vida">Vida</a>
+                                        <a href="/seguro-viagem">Viagem</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </nav>
             </>
         );
     }
