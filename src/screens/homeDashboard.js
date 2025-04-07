@@ -1,65 +1,77 @@
 import React, { Component } from 'react';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 
+// Imagens
+import headerImg1 from '../../src/assets/familia.jpg';
+import headerImg2 from '../../src/assets/casa.jpg';
+import headerImg3 from '../../src/assets/familia.jpg';
 
-
-//Imagens
-import headerImg from '../../src/assets/header-img.png'
-
-// Icones
+// Ícones
 import {
-    FaRegClock, 
-    FaLock, 
+    FaRegClock,
+    FaLock,
     FaLaptop,
     FaRegGrinWink,
     FaRegMoneyBillAlt,
-    FaCarAlt,
-    FaHome,
-    FaHeartbeat,
-    FaPlane
-
+    // FaCarAlt,
+    // FaHome,
+    // FaHeartbeat,
+    // FaPlane
 } from 'react-icons/fa';
-
 
 // Components
 import SlideFeacures from '../componets/slideFeactures';
+import SlideFeacuresDepoimentos from '../componets/slideFeacturesServ';
 import Whatsapp from '../componets/whatsappIcon';
-// import { List } from '@mui/material';
 
-
-//mudança de páginas
-
-class homeDashboard extends Component {
+class HomeDashboard extends Component {
     render() {
-        return ( 
+        const headerImages = [headerImg1, headerImg2, headerImg3]; // Array com as imagens do carrossel
 
+        return (
             <div className='App-header' >
-                    <Whatsapp/>
+                <Whatsapp />
                 <div className='Home-Dach'>
                     <div className='headerDach'>
-                        <div className='headerTitle'>
-                            <h1>Você protegido por quem <br/> sempre se importa</h1>
+                        {/* <div className='headerTitle'>
+                            <h1>Você protegido por quem <br /> sempre se importa</h1>
                             <p>Cote online o seu seguro</p>
                             <div className='segurosType'>
-                                <a href='/seguro-veiculos'><FaCarAlt /><br/> <p>Autos</p></a >
-                                <a href='/seguro-residencial'><FaHome /><br/> <p>Residêncial</p> </a >
-                                <a href='/seguro-vida'><FaHeartbeat  /> <br/> <p>Vida</p> </a >
-                                <a href='/seguro-viagem'><FaPlane  /><br/> <p>Viagem</p> </a >
+                                <a href='/seguro-veiculos'><FaCarAlt /><br /> <p>Autos</p></a >
+                                <a href='/seguro-residencial'><FaHome /><br /> <p>Residêncial</p> </a >
+                                <a href='/seguro-vida'><FaHeartbeat /> <br /> <p>Vida</p> </a >
+                                <a href='/seguro-viagem'><FaPlane /><br /> <p>Viagem</p> </a >
                             </div>
-                        </div>
+                        </div> */}
                         <div className='headerImg'>
-                            <img className='bgImg1' alt='imagem de homem apontando' src={headerImg} />
-                           
+                            <Splide
+                                options={{
+                                    type: 'fade',
+                                    rewind: true,
+                                    autoplay: true,
+                                    interval: 3000,
+                                    arrows: false,
+                                    pagination: false,
+                                }}
+                            >
+                                {headerImages.map((img, index) => (
+                                    <SplideSlide key={index}>
+                                        <img id='bgImg1' alt={`Imagem destaque ${index + 1}`} src={img} />
+                                    </SplideSlide>
+                                ))}
+                            </Splide>
                         </div>
                     </div>
 
                     <div className='HomeDesktopCarrosel'>
                         <SlideFeacures />
                     </div>
-                        <input type="button" className='btnHome-lp' value="Faça seu cadastro e acompanhe seu processo online." />
+                    <input type="button" className='btnHome-lp' value="Faça seu cadastro e acompanhe seu processo online." />
 
                     <div className='section-home-1'>
                         <h1>Faça sua cotação de seguro online</h1>
-                        <a href='/'>Agora mesmo</a><br/>
+                        <a href='/'>Agora mesmo</a><br />
                         <div className='balon-segurados'>
                             <div className='balon-left'>
                                 <p>Segurados</p>
@@ -69,12 +81,11 @@ class homeDashboard extends Component {
                                 <p>A Dispositiva teve a oportunidade de assegurar mais de 4.000 pessoas em todo o Brasil desde 2018.</p>
                             </div>
                         </div>
-                        
                     </div>
 
                     <div className='section-home-2'>
                         <h1>Segurança em todos os momentos, 100% digital.</h1>
-                        
+
                         <div className='organize-arg-sec-2'>
                             <div className='arguments-section-2'>
                                 <div className='as2-number'>
@@ -101,7 +112,7 @@ class homeDashboard extends Component {
                             </div>
                         </div>
 
-                        <input type="button" value="Realize sua cotação agora mesmo." className='btnSec2'/>
+                        <input type="button" value="Realize sua cotação agora mesmo." className='btnSec2' />
                     </div>
 
                     <div className='section-home-3'>
@@ -111,32 +122,31 @@ class homeDashboard extends Component {
 
                         <div className='args-section-3'>
                             <div className='argAll-section-3 arg-1-section-3'>
-                                <h2><FaRegClock/></h2>
+                                <h2><FaRegClock /></h2>
                                 <h3>Rápido</h3>
                                 <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
                             </div>
                             <div className='argAll-section-3 arg-2-section-3'>
-                                <h2><FaLock/></h2>
+                                <h2><FaLock /></h2>
                                 <h3>Seguro</h3>
                                 <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
                             </div>
                             <div className='argAll-section-3 arg-3-section-3'>
-                                <h2><FaLaptop/></h2>
+                                <h2><FaLaptop /></h2>
                                 <h3>100% Digital</h3>
                                 <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
                             </div>
                             <div className='argAll-section-3 arg-4-section-3'>
-                                <h2><FaRegGrinWink/></h2>
+                                <h2><FaRegGrinWink /></h2>
                                 <h3>Humano</h3>
                                 <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
                             </div>
                             <div className='argAll-section-3 arg-5-section-3'>
-                                <h2><FaRegMoneyBillAlt/></h2>
+                                <h2><FaRegMoneyBillAlt /></h2>
                                 <h3>Econômico</h3>
                                 <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
                             </div>
                         </div>
-
                     </div>
 
                     <div className='section-home-4'>
@@ -146,18 +156,13 @@ class homeDashboard extends Component {
                             <p>Confira o depoimento de quem já melhorou a vida com a gente.</p>
                         </div>
                         <div className='depoimentos'>
-                            {/* Criar ListView */}
+                            <SlideFeacuresDepoimentos/>
                         </div>
-
                     </div>
-
                 </div>
-
-
-
             </div>
         );
     }
 }
 
-export default homeDashboard;
+export default HomeDashboard;
