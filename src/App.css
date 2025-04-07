@@ -118,6 +118,13 @@
   font-size: 17px;
 }
 
+.headerSeguroVida > h1{
+  color: #2D92FD;
+}
+.headerSeguroVida > p{
+  color: #2D92FD;
+}
+
 .btnSeguros{
   background-color: #E63888 !important;
   width: auto !important;
@@ -141,6 +148,13 @@
   
 }
 .imgSeguroResidencial{
+  display: table-cell;
+  vertical-align: bottom !important;
+}
+
+.imgSeguroViagem{
+  width: 500px !important;
+  height: auto !important;
   display: table-cell;
   vertical-align: bottom !important;
 }
@@ -1086,7 +1100,7 @@ video {
 }
 .divmenuitems{
   display: inline;
-  width: 70%; 
+  width: 100%; 
 }
 
 .menuItens {

@@ -49,9 +49,6 @@ class topBar extends Component {
                         <div className="divmenuitems" >
                             <ul className="menuItens">
                                 <li><a href="/">Início</a></li>
-                                <li><a href="/quem-somos">Sobre nós</a></li>
-                                <li><a href="/contatos">Contatos</a></li>
-
                                 <li class="dropdown">
                                     <a href="#seguros" class="dropbtn">Seguros</a>
                                     <div class="dropdown-content">
@@ -61,6 +58,9 @@ class topBar extends Component {
                                         <a href="/seguro-viagem">Viagem</a>
                                     </div>
                                 </li>
+                                <li><a href="/quem-somos">Sobre nós</a></li>
+                                <li><a href="/contatos">Contatos</a></li>
+
                             </ul>
                         </div>
 

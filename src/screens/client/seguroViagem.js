@@ -1,117 +1,100 @@
 import React, { Component } from 'react';
 
+// Imagens
+import headerImg from '../../../src/assets/seguroViagem.png';
 
-
-//Imagens
-import headerImg from '../../../src/assets/seguroViagem.png'
-
-// Icones
+// Ícones
 import {
     FaRegClock,
     FaLock,
     FaLaptop,
     FaRegGrinWink
-
 } from 'react-icons/fa';
-
 
 // Components
 import Whatsapp from '../../componets/whatsappIcon';
-// import { List } from '@mui/material';
 
-
-//mudança de páginas
-
-class homeDashboard extends Component {
+class HomeDashboard extends Component {
     render() {
         return (
-
             <div className='App-header' >
                 <Whatsapp />
                 <div className='Home-Dach '>
                     <div className='headerDach headerPgSeguros'>
                         <div className='headerTitle headerPgSeguros'>
-                            <h1>Seguro para o seu veiculo</h1>
-                            <p>Mais proteção para o seu carro ou moto.</p>
-                            <input type="button" className='btnHome-lp btnSeguros' value="Quero me proteger" />
+                            <h1>Viaje com mais segurança e tranquilidade</h1>
+                            <p>Proteção completa para você aproveitar cada momento da sua viagem.</p>
+                            <input type="button" className='btnHome-lp btnSeguros' value="Quero viajar seguro" />
                         </div>
                         <div className='headerImg'>
-                            <img className='bgImg1 imgSeguros' alt='imagem de homem apontando' src={headerImg} />
-
+                            <img className='bgImg1 imgSeguros imgSeguroViagem' alt='imagem de homem apontando' src={headerImg} />
                         </div>
                     </div>
 
                     <div className='section-home-3 section-seguros'>
-                        <h1>Confira as vatagens do</h1>
-                        <h2>Seguro de veiculos da Dispositiva</h2>
-                        <p>Eficiência é escolher o que faz mais sentido para você alcançar a sua liberdade. Sinta a experiência de ter as melhores soluções para os seus objetivos:</p>
+                        <h1>Descubra as vantagens do nosso</h1>
+                        <h2>Seguro Viagem Dispositiva</h2>
+                        <p>Eficiência em proteger seus planos, para que imprevistos não atrapalhem sua jornada:</p>
 
                         <div className='args-section-3'>
                             <div className='argAll-section-3 arg-1-section-3'>
                                 <h2><FaRegClock /></h2>
-                                <h3>Rápido</h3>
-                                <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
+                                <h3>Agilidade</h3>
+                                <p>Contratação rápida e fácil, para você garantir sua proteção antes de embarcar.</p>
                             </div>
                             <div className='argAll-section-3 arg-2-section-3'>
                                 <h2><FaLock /></h2>
-                                <h3>Seguro</h3>
-                                <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
+                                <h3>Segurança</h3>
+                                <p>Coberturas essenciais para sua tranquilidade em qualquer destino.</p>
                             </div>
                             <div className='argAll-section-3 arg-3-section-3'>
                                 <h2><FaLaptop /></h2>
                                 <h3>100% Digital</h3>
-                                <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
+                                <p>Gerencie seu seguro de viagem online, de onde estiver, com praticidade.</p>
                             </div>
                             <div className='argAll-section-3 arg-4-section-3'>
                                 <h2><FaRegGrinWink /></h2>
-                                <h3>Humano</h3>
-                                <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
+                                <h3>Suporte Humano</h3>
+                                <p>Assistência especializada para te ajudar em qualquer situação durante a viagem.</p>
                             </div>
                         </div>
 
-                        <input type="button" className='btnHome-lp btnSeguros btnActionSeguros' value="Quero me proteger" />
+                        <input type="button" className='btnHome-lp btnSeguros btnActionSeguros' value="Garanta sua proteção de viagem" />
                     </div>
 
-
-
-
                     <div className='section-home-2 section-seguros'>
-                        <h1>Cobertura Seguro de Veiculos</h1>
+                        <h1>Coberturas Essenciais para sua Viagem</h1>
 
                         <div className='organize-arg-sec-2'>
                             <div className='arguments-section-2'>
                                 <div className='as2-number argsSeguro'>
                                     <h1>1</h1>
                                 </div>
-                                <h2>Experiência</h2>
-                                <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
+                                <h2>Cancelamento de Viagem</h2>
+                                <p>Reembolso em caso de imprevistos que impossibilitem sua viagem.</p>
                             </div>
 
                             <div className='arguments-section-2'>
                                 <div className='as2-number argsSeguro'>
                                     <h1>2</h1>
                                 </div>
-                                <h2>Experiência</h2>
-                                <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
+                                <h2>Interrupção de Viagem</h2>
+                                <p>Cobertura para despesas adicionais em caso de interrupção da sua viagem.</p>
                             </div>
 
                             <div className='arguments-section-2'>
                                 <div className='as2-number argsSeguro'>
                                     <h1>3</h1>
                                 </div>
-                                <h2>Experiência</h2>
-                                <p>Menos papelada, menos preocupação e mais agilidade. Você controla tudo pelo App.</p>
+                                <h2>Extravio de Bagagem</h2>
+                                <p>Indenização por perda ou danos à sua bagagem durante a viagem.</p>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-
-
             </div>
         );
     }
 }
 
-export default homeDashboard;
+export default HomeDashboard;

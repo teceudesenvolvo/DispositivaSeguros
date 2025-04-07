@@ -1,96 +1,75 @@
 import React, { Component } from 'react';
 
-//Imagens
-import FamilyImg from '../../assets/familia.jpg'
-import HouseImg from '../../assets/casa.jpg'
+// Imagens
+import FamilyImg from '../../assets/familia.jpg';
+import HouseImg from '../../assets/casa.jpg';
 
-// Icones
-import {
-
-
-} from "react-icons/fa";
-
+// Ícones
+import { } from 'react-icons/fa';
 
 // Components
 import Whatsapp from '../../componets/whatsappIcon';
 
+class Categorias extends Component {
+    render() {
+        return (
+            <div className='App-header' >
+                <Whatsapp />
+                {/* Seção 1: Apresentação Quem Somos */}
+                <div className='section1-quem-somos'>
+                    <div className='designQuemSomos'>
+                        <img className='bgImgQuemSomos' alt='Imagem de uma família unida' src={FamilyImg} />
+                    </div>
+                    <div className='section-home-3 section-side'>
+                        <h1>Quem somos</h1>
+                        <h2>Seguros personalizados, feitos sob medida para você.</h2>
+                        <p>Priorizamos suas necessidades para oferecer soluções eficientes e que realmente fazem sentido para sua liberdade e objetivos.</p>
+                    </div>
+                </div>
 
+                {/* Seção 2: Propósito da Dispositiva */}
+                <div className='section1-quem-somos'>
+                    <div className='section-home-3 section-side'>
+                        <h1>Nossa Missão</h1>
+                        <h2>Segurança que vai além do contrato, focada no seu bem-estar.</h2>
+                        <p>Nosso propósito é cuidar do que é essencial para você, proporcionando tranquilidade e a confiança de estar bem protegido.</p>
+                    </div>
+                    <div className='designQuemSomos designColor'>
+                        <img className='bgImgQuemSomos' alt='Imagem de uma casa aconchegante' src={HouseImg} />
+                    </div>
+                </div>
 
+                {/* Seção 3: Diferencial da Dispositiva */}
+                <div className='section1-quem-somos'>
+                    <div className='section-home-3'>
+                        <h2>Inovação e tecnologia a serviço de um atendimento humano e eficaz.</h2>
+                        <p>Combinamos o melhor dos dois mundos para criar soluções de seguro inteligentes e um suporte presente em todos os momentos. Queremos que você se sinta seguro e bem assistido, com os melhores serviços do mercado. Para nós, eficiência significa facilitar o seu caminho para alcançar seus objetivos com segurança e praticidade.</p>
+                    </div>
+                </div>
 
-class categorias extends Component {
-  render() {
-    return (
-
-      <div className='App-header' >
-        <Whatsapp />
-        {/* Seção 1 */}
-        <div className='section1-quem-somos'>
-          <div className='designQuemSomos'>
-            <img className='bgImgQuemSomos' alt='imagem de homem apontando' src={FamilyImg} />
-          </div>
-          <div className='section-home-3 section-side'>
-            <h1>Quem somos</h1>
-            <h2>Conseguir um seguro montado especialmente para você ficou mais facil</h2>
-            <p>Eficiência é escolher o que faz mais sentido para você alcançar a sua liberdade.
-              Sinta a experiência de ter as melhores soluções para os seus objetivos.</p>
-          </div>
-        </div>
-
-        {/* Seção 2 */}
-
-        <div className='section1-quem-somos'>
-
-          <div className='section-home-3 section-side'>
-            <h1>Na Dispositiva</h1>
-            <h2> Acreditamos que segurança vai além de simples contratos. </h2>
-            <p>Nosso propósito é cuidar do que importa para você, proporcionando tranquilidade e confiança.</p>
-          </div>
-          <div className='designQuemSomos designColor'>
-            <img className='bgImgQuemSomos' alt='imagem de homem apontando' src={HouseImg} />
-          </div>
-        </div>
-
-        {/* Seção 3 */}
-
-        <div className='section1-quem-somos'>
-
-          <div className='section-home-3'>
-            <h2> Combinamos inovação, tecnologia e atendimento
-              humanizado para criar soluções </h2>
-            <p>Estamos aqui para oferecer suporte em todos os momentos, garantindo que você esteja protegido com os melhores serviços do mercado.
-              O resultado é o que chamamos de eficiência e isso mudou a forma das pessoas
-              enxergarem o seguro. Afinal, o mais importante para nós é que você alcance seus
-              objetivos da maneira mais fácil e segura possível.</p>
-          </div>
-        </div>
-
-        <div className='section1-quem-somos'>
-
-          <div className='section-home-3'>
-            <h1>Valores</h1>
-            <div className='section1-quem-somos section-value'>
-              <div className='valores'>
-                <h2> Melhores que ontem </h2>
-                <p>A gente aprende, aplica e evolui o tempo todo com simplicidade.</p>
-              </div>
-              <div className='valores'>
-                <h2> Coragem para construir o novo </h2>
-                <p>O que é novo pode até dar medo, mas a gente enxerga além do limite.</p>
-              </div>
-              <div className='valores'>
-                <h2> Diferentes e com o mesmo propósito </h2>
-                <p>Diversidade pra gente é uma fronteira que vai muito além do respeito às diferenças, ela fortifica os diversos pontos de vista.</p>
-              </div>
+                {/* Seção 4: Nossos Valores */}
+                <div className='section1-quem-somos'>
+                    <div className='section-home-3'>
+                        <h1>Nossos Valores</h1>
+                        <div className='section1-quem-somos section-value'>
+                            <div className='valores'>
+                                <h2>Evolução Contínua</h2>
+                                <p>Aprendemos, aplicamos e evoluímos constantemente, buscando sempre a simplicidade em nossos processos.</p>
+                            </div>
+                            <div className='valores'>
+                                <h2>Inovação com Coragem</h2>
+                                <p>Enfrentamos o novo com ousadia, enxergando oportunidades além dos limites convencionais.</p>
+                            </div>
+                            <div className='valores'>
+                                <h2>Diversidade com Propósito</h2>
+                                <p>Valorizamos a diversidade como um pilar que enriquece nossas perspectivas e fortalece nossos objetivos comuns.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
-        </div>
-
-
-
-      </div>
-    );
-  }
+        );
+    }
 }
 
-export default categorias;
+export default Categorias;
