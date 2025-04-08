@@ -1373,9 +1373,10 @@ li.dropdown {
   align-items: center;
   justify-content: center;
   display: flex;
-  width: 100%;
+  width: 80%;
   object-fit: cover;
   border-radius: 10px 10px 0 0 !important;
+  margin: 0 auto;
 }
 
 .Produto-img {
@@ -1386,7 +1387,9 @@ li.dropdown {
 
 .DestaquesDescricao {
   padding: 0 0 0 10px;
-  text-align: left;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
   width: 180px;
   height: 180px;
   background-color: #fff !important;
