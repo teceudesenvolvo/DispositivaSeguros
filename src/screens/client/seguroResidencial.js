@@ -14,23 +14,103 @@ import {
 // Components
 import Whatsapp from '../../componets/whatsappIcon';
 
+
 class HomeDashboard extends Component {
+    state = {
+        showPopup: false,
+        nome: '',
+        email: '',
+        whatsapp: ''
+    };
+
+    handleButtonClick = () => {
+        console.log('Estou abrindo!')
+        this.setState({ showPopup: true });
+    };
+
+    handleClosePopup = () => {
+        this.setState({ showPopup: false });
+    };
+
+    handleInputChange = (event) => {
+        const { name, value } = event.target;
+        this.setState({ [name]: value });
+    };
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const { nome, email, whatsapp } = this.state;
+
+        // Simulação de envio de e-mail (você precisará de uma API real para isso)
+        console.log('Enviando solicitação para o administrador:', { nome, email, whatsapp });
+        console.log('Enviando confirmação para o cliente:', email);
+        alert(`Sua solicitação foi enviada. Verifique seu e-mail (${email}) para mais informações.`);
+
+        this.handleClosePopup();
+        this.setState({ nome: '', email: '', whatsapp: '' }); // Limpa o formulário
+    };
+
+    renderPopup() {
+        return (
+            <div className="popup-overlay" onClick={this.handleClosePopup}>
+                <div className="popup-content section-home-1" onClick={(e) => e.stopPropagation()}>
+                    <h2 className='popup-title'>Solicite sua cotação</h2>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-group">
+                            <input
+                                placeholder='Digitel Seu Nome'
+                                type="text"
+                                id="nome"
+                                name="nome"
+                                className='conteinar-Add-Products-select'
+                                value={this.state.nome}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                placeholder='Seu email (exemplo@dominio.com)'
+                                type="email"
+                                className='conteinar-Add-Products-select'
+                                id="email"
+                                name="email"
+                                value={this.state.email}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                placeholder='Digite seu telefone Ex: (85)99999-XXXX'
+                                type="tel"
+                                className='conteinar-Add-Products-select'
+                                id="whatsapp"
+                                name="whatsapp"
+                                value={this.state.whatsapp}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="popup-buttons">
+                            <button type="submit" className='buttonLogin btnFormPopup'>Enviar Solicitação</button>
+                            {/* <button type="button" onClick={this.handleClosePopup}>Cancelar</button> */}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        );
+    }
+
     render() {
         return (
             <div className='App-header' >
                 <Whatsapp />
                 <div className='Home-Dach '>
                     <div className='headerDach headerPgSeguros backgroundColor2'>
-
-                    <div className='imgSeguroResidencial headImgSeguros'>
-                        <img className='bgImg1 imgSeguros' alt='imagem de uma casa segura' src={headerImg} />
-                    </div>
-                        {/* <div className='headerTitle headerPgSeguros'>
-                            <h1>Proteja o seu lar com segurança</h1>
-                            <p>Coberturas completas para garantir o bem-estar da sua casa.</p>
-                            <input type="button" className='btnHome-lp btnSeguros' value="Quero proteger minha casa" />
-                        </div> */}
-
+                        <div className='imgSeguroResidencial headImgSeguros'>
+                            <img className='bgImg1 imgSeguros' alt='imagem de uma casa segura' src={headerImg} />
+                        </div>
                     </div>
 
                     <div className='section-home-3 section-seguros'>
@@ -61,7 +141,7 @@ class HomeDashboard extends Component {
                             </div>
                         </div>
 
-                        <input type="button" className='btnHome-lp btnSeguros btnActionSeguros' value="Simular seguro residencial" />
+                        <input onClick={this.handleButtonClick} type="button" className='btnHome-lp btnSeguros btnActionSeguros' value="Simular seguro residencial" />
                     </div>
 
                     <div className='section-home-2 section-seguros'>
@@ -93,6 +173,8 @@ class HomeDashboard extends Component {
                             </div>
                         </div>
                     </div>
+
+                    {this.state.showPopup && this.renderPopup()}
                 </div>
             </div>
         );

@@ -14,18 +14,102 @@ import {
 // Components
 import Whatsapp from '../../componets/whatsappIcon';
 
+// Importe o arquivo CSS (certifique-se de que o caminho está correto)
+// import './HomeDashboard.css'; // Se você tiver estilos específicos para esta página
+
 class HomeDashboard extends Component {
+    state = {
+        showPopupViagem: false,
+        nome: '',
+        email: '',
+        whatsapp: '',
+        destino: '',
+        dataInicio: '',
+        dataFim: ''
+    };
+
+    handleButtonClickViagem = () => {
+        this.setState({ showPopupViagem: true });
+    };
+
+    handleClosePopupViagem = () => {
+        this.setState({ showPopupViagem: false });
+    };
+
+    handleInputChange = (event) => {
+        const { name, value } = event.target;
+        this.setState({ [name]: value });
+    };
+
+    handleSubmitViagem = (event) => {
+        event.preventDefault();
+        const { nome, email, whatsapp, destino, dataInicio, dataFim } = this.state;
+
+        console.log('Solicitação de seguro viagem:', { nome, email, whatsapp, destino, dataInicio, dataFim });
+        alert(`Sua solicitação de seguro viagem para ${destino} foi enviada. Verifique seu e-mail (${email}) para mais informações.`);
+
+        this.handleClosePopupViagem();
+        this.setState({ nome: '', email: '', whatsapp: '', destino: '', dataInicio: '', dataFim: '' });
+    };
+
+    renderPopupViagem() {
+        return (
+            <div className="popup-overlay" onClick={this.handleClosePopupViagem}>
+                <div className="popup-content section-home-1" onClick={(e) => e.stopPropagation()}>
+                    <h2 className='popup-title'>Solicite sua cotação de Seguro Viagem</h2>
+                    <form onSubmit={this.handleSubmitViagem}>
+                        <div className="form-group">
+                            <input
+                                placeholder='Digite Seu Nome'
+                                type="text"
+                                id="nome"
+                                name="nome"
+                                className='conteinar-Add-Products-select'
+                                value={this.state.nome}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                placeholder='Seu email (exemplo@dominio.com)'
+                                type="email"
+                                className='conteinar-Add-Products-select'
+                                id="email"
+                                name="email"
+                                value={this.state.email}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                placeholder='Digite seu WhatsApp Ex: (85)99999-XXXX'
+                                type="tel"
+                                className='conteinar-Add-Products-select'
+                                id="whatsapp"
+                                name="whatsapp"
+                                value={this.state.whatsapp}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </div>
+
+                        <div className="popup-buttons">
+                            <button type="submit" className='buttonLogin btnFormPopup'>Enviar Solicitação</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        );
+    }
+
     render() {
         return (
             <div className='App-header' >
                 <Whatsapp />
                 <div className='Home-Dach '>
                     <div className='headerDach headerPgSeguros'>
-                        {/* <div className='headerTitle headerPgSeguros'>
-                            <h1>Viaje com mais segurança e tranquilidade</h1>
-                            <p>Proteção completa para você aproveitar cada momento da sua viagem.</p>
-                            <input type="button" className='btnHome-lp btnSeguros' value="Quero viajar seguro" />
-                        </div> */}
                         <div className=' imgSeguroResidencial headImgSeguros'>
                             <img className='bgImg1 imgSeguros' alt='imagem de homem apontando' src={headerImg} />
                         </div>
@@ -59,7 +143,12 @@ class HomeDashboard extends Component {
                             </div>
                         </div>
 
-                        <input type="button" className='btnHome-lp btnSeguros btnActionSeguros' value="Garanta sua proteção de viagem" />
+                        <input
+                            type="button"
+                            className='btnHome-lp btnSeguros btnActionSeguros'
+                            value="Garanta sua proteção de viagem"
+                            onClick={this.handleButtonClickViagem} // Adicionei o onClick para o novo popup
+                        />
                     </div>
 
                     <div className='section-home-2 section-seguros'>
@@ -91,6 +180,9 @@ class HomeDashboard extends Component {
                             </div>
                         </div>
                     </div>
+
+                    {/* Renderização condicional do popup de viagem */}
+                    {this.state.showPopupViagem && this.renderPopupViagem()}
                 </div>
             </div>
         );
