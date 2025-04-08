@@ -6,6 +6,9 @@ import '../App.css'
 import Logo from '../assets/e-camara-16.png'
 
 // Icones
+import{
+    FaBars
+} from 'react-icons/fa'
 
 // Components
 
@@ -17,7 +20,8 @@ class topBar extends Component {
         super(props)
         this.state = {
             window: window.location.pathname,
-            headerHome: 'header-home'
+            headerHome: 'header-home',
+            mostrarMenu: 'invible-mobile-menu'
         }
     }
 
@@ -38,6 +42,13 @@ class topBar extends Component {
                 return null
         }
     }
+     myFunction(){
+        if (this.state.mostrarMenu === "visible-mobile-menu") {
+            this.setState.mostrarMenu = "invible-mobile-menu";
+        } else {
+            this.setState.mostrarMenu = "visible-mobile-menu";
+        }
+      }
 
 
     render() {
@@ -47,6 +58,21 @@ class topBar extends Component {
                     <div className='header-home'>
                         <p className='titleHeader'><img src={Logo} alt='Logomarca' onClick={() => { window.location.href = "/" }} /></p>
                         <div className="divmenuitems" >
+                            {/* Menu Mobile */}
+                            <div class="mobile-container">
+                                <div class="topnav">
+                                    <div className={this.state.mostrarMenu}>
+                                        <a href="#news">News</a>
+                                        <a href="#contact">Contact</a>
+                                        <a href="#about">About</a>
+                                    </div>
+                                    <a href="#home" class="icon" onclick={this.myFunction}>
+                                        <FaBars/>
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Menu Desktop */}
                             <ul className="menuItens">
                                 <li><a href="/">Início</a></li>
                                 <li class="dropdown">

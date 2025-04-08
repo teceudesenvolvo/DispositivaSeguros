@@ -59,7 +59,7 @@ class SlideDepoimentos extends Component {
         const listDepoimentos = depoimentos.map((depoimento) => (
             <SplideSlide key={depoimento.id} className="slidesDepoimento">
                 <div className="depoimentoTexto">
-                    <p>{depoimento.texto}</p>
+                    <p>"{depoimento.texto}"</p>
                     <span className="depoimentoAutor">- {depoimento.autor}</span>
                 </div>
             </SplideSlide>

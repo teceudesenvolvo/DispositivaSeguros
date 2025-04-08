@@ -26,6 +26,14 @@ import ImgSeg3 from '../../src/assets/seguradora-3.png'
 import ImgSeg4 from '../../src/assets/seguradora-4.png'
 import ImgSeg5 from '../../src/assets/seguradora-5.png'
 import ImgSeg6 from '../../src/assets/seguradora-6.png'
+import ImgSeg7 from '../../src/assets/seguradora-7.png'
+import ImgSeg8 from '../../src/assets/seguradora-8.svg'
+import ImgSeg9 from '../../src/assets/seguradora-9.jpg'
+import ImgSeg10 from '../../src/assets/seguradora-10.png'
+import ImgSeg11 from '../../src/assets/seguradora-11.png'
+import ImgSeg12 from '../../src/assets/seguradora-12.png'
+import ImgSeg13 from '../../src/assets/seguradora-13.png'
+import ImgSeg14 from '../../src/assets/seguradora-14.webp'
 
 //mudança de páginas
 
@@ -57,6 +65,38 @@ class slideFeactures extends Component {
                 {
                     name: 'Seguradora 1',
                     imagem: ImgSeg6
+                },
+                {
+                    name: 'Seguradora 1',
+                    imagem: ImgSeg7
+                },
+                {
+                    name: 'Seguradora 1',
+                    imagem: ImgSeg8
+                },
+                {
+                    name: 'Seguradora 1',
+                    imagem: ImgSeg9
+                },
+                {
+                    name: 'Seguradora 1',
+                    imagem: ImgSeg10
+                },
+                {
+                    name: 'Seguradora 1',
+                    imagem: ImgSeg11
+                },
+                {
+                    name: 'Seguradora 1',
+                    imagem: ImgSeg12
+                },
+                {
+                    name: 'Seguradora 1',
+                    imagem: ImgSeg13
+                },
+                {
+                    name: 'Seguradora 1',
+                    imagem: ImgSeg14
                 },
             ]
         }

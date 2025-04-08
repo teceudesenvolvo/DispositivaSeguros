@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // Imagens
-import headerImg from '../../../src/assets/seguroViagem.png';
+import headerImg from '../../../src/assets/viagem.jpg';
 
 // Ícones
 import {
@@ -21,13 +21,13 @@ class HomeDashboard extends Component {
                 <Whatsapp />
                 <div className='Home-Dach '>
                     <div className='headerDach headerPgSeguros'>
-                        <div className='headerTitle headerPgSeguros'>
+                        {/* <div className='headerTitle headerPgSeguros'>
                             <h1>Viaje com mais segurança e tranquilidade</h1>
                             <p>Proteção completa para você aproveitar cada momento da sua viagem.</p>
                             <input type="button" className='btnHome-lp btnSeguros' value="Quero viajar seguro" />
-                        </div>
-                        <div className='headerImg'>
-                            <img className='bgImg1 imgSeguros imgSeguroViagem' alt='imagem de homem apontando' src={headerImg} />
+                        </div> */}
+                        <div className=' imgSeguroResidencial headImgSeguros'>
+                            <img className='bgImg1 imgSeguros' alt='imagem de homem apontando' src={headerImg} />
                         </div>
                     </div>
 

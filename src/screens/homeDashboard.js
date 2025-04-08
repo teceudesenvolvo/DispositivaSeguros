@@ -3,9 +3,10 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
 // Imagens
-import headerImg1 from '../../src/assets/familia.jpg';
-import headerImg2 from '../../src/assets/casa.jpg';
-import headerImg3 from '../../src/assets/familia.jpg';
+import headerImg1 from '../../src/assets/veicular.jpg';
+import headerImg2 from '../../src/assets/residencia.avif';
+import headerImg3 from '../../src/assets/vida.jpeg';
+import headerImg4 from '../../src/assets/viagem.jpg';
 
 // Ícones
 import {
@@ -26,24 +27,103 @@ import SlideFeacuresDepoimentos from '../componets/slideFeacturesServ';
 import Whatsapp from '../componets/whatsappIcon';
 
 class HomeDashboard extends Component {
+    state = {
+        showPopup: false,
+        nome: '',
+        email: '',
+        whatsapp: ''
+    };
+
+    handleButtonClick = () => {
+        this.setState({ showPopup: true });
+    };
+
+    handleClosePopup = () => {
+        this.setState({ showPopup: false });
+    };
+
+    handleInputChange = (event) => {
+        const { name, value } = event.target;
+        this.setState({ [name]: value });
+    };
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const { nome, email, whatsapp } = this.state;
+
+        // Simulação de envio de e-mail (você precisará de uma API real para isso)
+        console.log('Enviando solicitação para o administrador:', { nome, email, whatsapp });
+        console.log('Enviando confirmação para o cliente:', email);
+        alert(`Sua solicitação foi enviada. Verifique seu e-mail (${email}) para mais informações.`);
+
+        this.handleClosePopup();
+        this.setState({ nome: '', email: '', whatsapp: '' }); // Limpa o formulário
+    };
+
+    renderPopup() {
+        return (
+            <div className="popup-overlay" onClick={this.handleClosePopup}> 
+                <div className="popup-content section-home-1" onClick={(e) => e.stopPropagation()}> 
+                    <h2 className='popup-title'>Solicite sua cotação</h2>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-group">
+                            {/* <label htmlFor="nome">Nome:</label> */}
+                            <input
+                                placeholder='Digitel Seu Nome'
+                                type="text"
+                                id="nome"
+                                name="nome"
+                                className='conteinar-Add-Products-select'
+                                value={this.state.nome}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            {/* <label htmlFor="email">Email:</label> */}
+                            <input
+                                placeholder='Seu email (exemplo@dominio.com)'
+                                type="email"
+                                className='conteinar-Add-Products-select'
+                                id="email"
+                                name="email"
+                                value={this.state.email}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            {/* <label htmlFor="whatsapp">WhatsApp:</label> */}
+                            <input
+                                placeholder='Digite seu telefone Ex: (85)99999-XXXX'
+                                type="tel"
+                                id="whatsapp"
+                                className='conteinar-Add-Products-select'
+                                name="whatsapp"
+                                value={this.state.whatsapp}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="popup-buttons">
+                            <button type="submit" className='buttonLogin btnFormPopup'>Enviar Solicitação</button>
+                            {/* <button type="button" onClick={this.handleClosePopup}>Cancelar</button> */}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        );
+    }
+
     render() {
-        const headerImages = [headerImg1, headerImg2, headerImg3]; // Array com as imagens do carrossel
+        const { showPopup } = this.state;
+        const headerImages = [headerImg1, headerImg2, headerImg3, headerImg4]; // Array com as imagens do carrossel
 
         return (
             <div className='App-header' >
                 <Whatsapp />
                 <div className='Home-Dach'>
                     <div className='headerDach'>
-                        {/* <div className='headerTitle'>
-                            <h1>Você protegido por quem <br /> sempre se importa</h1>
-                            <p>Cote online o seu seguro</p>
-                            <div className='segurosType'>
-                                <a href='/seguro-veiculos'><FaCarAlt /><br /> <p>Autos</p></a >
-                                <a href='/seguro-residencial'><FaHome /><br /> <p>Residêncial</p> </a >
-                                <a href='/seguro-vida'><FaHeartbeat /> <br /> <p>Vida</p> </a >
-                                <a href='/seguro-viagem'><FaPlane /><br /> <p>Viagem</p> </a >
-                            </div>
-                        </div> */}
                         <div className='headerImg'>
                             <Splide
                                 options={{
@@ -67,11 +147,16 @@ class HomeDashboard extends Component {
                     <div className='HomeDesktopCarrosel'>
                         <SlideFeacures />
                     </div>
-                    <input type="button" className='btnHome-lp' value="Faça seu cadastro e acompanhe seu processo online." />
+                    <input
+                        type="button"
+                        className='btnHome-lp'
+                        value="Solicite agora mesmo sua cotação online."
+                        onClick={this.handleButtonClick}
+                    />
 
                     <div className='section-home-1'>
                         <h1>Faça sua cotação de seguro online</h1>
-                        <a href='/'>Agora mesmo</a><br />
+                        {/* <a href='/'>Agora mesmo</a><br /> */}
                         <div className='balon-segurados'>
                             <div className='balon-left'>
                                 <p>Segurados</p>
@@ -112,7 +197,7 @@ class HomeDashboard extends Component {
                             </div>
                         </div>
 
-                        <input type="button" value="Realize sua cotação agora mesmo." className='btnSec2' />
+                        <input type="button" value="Realize sua cotação agora mesmo." className='btnSec2'  onClick={this.handleButtonClick}/>
                     </div>
 
                     <div className='section-home-3'>
@@ -156,10 +241,11 @@ class HomeDashboard extends Component {
                             <p>Confira o depoimento de quem já melhorou a vida com a gente.</p>
                         </div>
                         <div className='depoimentos'>
-                            <SlideFeacuresDepoimentos/>
+                            <SlideFeacuresDepoimentos />
                         </div>
                     </div>
                 </div>
+                {showPopup && this.renderPopup()}
             </div>
         );
     }

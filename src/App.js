@@ -52,7 +52,7 @@ function App() {
         <Route path="/perfil" component={Perfil} />
         
         {/* Páginas de Formulários */}
-        <Route path="/protocolar-materia" component={ContactPage} />
+        <Route path="/contatos" component={ContactPage} />
         
         <Route path="/novidades" component={Home} />
 

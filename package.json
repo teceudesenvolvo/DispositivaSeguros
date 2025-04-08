@@ -5,6 +5,7 @@
   "dependencies": {
     "@date-io/dayjs": "^2.15.0",
     "@date-io/luxon": "^2.15.0",
+    "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "latest",
