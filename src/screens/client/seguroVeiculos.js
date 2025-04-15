@@ -32,17 +32,29 @@ const marcasCarro = [
     'Toyota', 'Troller', 'Volkswagen', 'Volvo'
 ];
 
+const modelosPorMarca = {
+    // Preencha com os modelos para cada marca (isso pode vir de uma API)
+    'Chevrolet': ['Onix', 'Prisma', 'S10', 'Cruze'],
+    'Fiat': ['Palio', 'Uno', 'Strada', 'Toro'],
+    'Volkswagen': ['Gol', 'Fox', 'Polo', 'Virtus'],
+    'Ford': ['Ka', 'Fiesta', 'Ecosport', 'Ranger'],
+    'Honda': ['Civic', 'HR-V', 'Fit', 'City'],
+    // ... adicione outras marcas e seus modelos
+};
+
 class HomeDashboard extends Component {
     state = {
         showPopupResidencial: false,
         showPopupVeicular: false,
-        nome: '',
+        // Dados Pessoais
+        nomeCompleto: '',
         email: '',
-        whatsapp: '',
+        telefoneCelular: '',
         cpf: '',
         dataNascimento: '',
-        estadoCivil: '',
         sexo: '',
+        estadoCivil: '',
+        // Endereço
         cep: '',
         endereco: '',
         numero: '',
@@ -50,13 +62,36 @@ class HomeDashboard extends Component {
         bairro: '',
         cidade: '',
         estado: '',
+        // Dados do Veículo
         possuiVeiculo: '',
         marcaVeiculo: '',
         modeloVeiculo: '',
-        anoFabricacaoVeiculo: '',
+        anoFabricacao: '',
+        zeroKm: '',
+        utilizacaoVeiculo: '',
+        kmAnual: '',
+        possuiGaragem: '',
+        // Histórico de Seguro
+        jaTeveSeguro: '',
+        classeBonus: '',
+        seguradoraAtual: '',
+        renovacaoSeguro: '',
+        // Condutor Principal
+        condutorPrincipal: '',
+        dataNascimentoCondutor: '',
+        sexoCondutor: '',
+        estadoCivilCondutor: '',
+        habilitacaoCondutor: '',
+        tempoHabilitacao: '',
+        // Outros Condutores
+        outrosCondutores: '',
+        // Coberturas e Opcionais (pode ser mais complexo com checkboxes/selects múltiplos)
+        // ...
+
         formErrors: {},
         isSubmitting: false,
-        submissionMessage: ''
+        submissionMessage: '',
+        modelosVeiculoOpcoes: []
     };
 
     handleButtonClickResidencial = () => {
@@ -80,42 +115,46 @@ class HomeDashboard extends Component {
         this.setState({ [name]: value });
     };
 
+    handlePossuiVeiculoChange = (event) => {
+        this.handleInputChange(event);
+        if (event.target.value === 'nao') {
+            this.setState({
+                marcaVeiculo: '',
+                modeloVeiculo: '',
+                anoFabricacao: '',
+                zeroKm: '',
+                utilizacaoVeiculo: '',
+                kmAnual: '',
+                possuiGaragem: ''
+            });
+        }
+    };
+
+    handleMarcaVeiculoChange = (event) => {
+        const marcaSelecionada = event.target.value;
+        this.handleInputChange(event);
+        this.setState({
+            modeloVeiculo: '', // Resetar o modelo ao mudar a marca
+            modelosVeiculoOpcoes: modelosPorMarca[marcaSelecionada] || []
+        });
+    };
+
     handleSubmitResidencial = (event) => {
         event.preventDefault();
-        const { nome, email, whatsapp } = this.state;
+        const { nomeCompleto, email, telefoneCelular } = this.state;
 
-        console.log('Solicitação de seguro residencial:', { nome, email, whatsapp });
+        console.log('Solicitação de seguro residencial:', { nomeCompleto, email, telefoneCelular });
         alert(`Sua solicitação de seguro residencial foi enviada. Verifique seu e-mail (${email}) para mais informações.`);
 
         this.handleClosePopupResidencial();
-        this.setState({ nome: '', email: '', whatsapp: '' });
+        this.setState({ nomeCompleto: '', email: '', telefoneCelular: '' });
     };
 
     handleSubmitVeicular = async (event) => {
         event.preventDefault();
         this.setState({ isSubmitting: true, submissionMessage: '', formErrors: {} });
 
-        const { nome, email, whatsapp, cpf, dataNascimento, estadoCivil, sexo, cep, endereco, numero, complemento, bairro, cidade, estado, possuiVeiculo, marcaVeiculo, modeloVeiculo, anoFabricacaoVeiculo } = this.state;
-        const formData = {
-            nome,
-            email,
-            whatsapp,
-            cpf,
-            dataNascimento,
-            estadoCivil,
-            sexo,
-            cep,
-            endereco,
-            numero,
-            complemento,
-            bairro,
-            cidade,
-            estado,
-            possuiVeiculo,
-            marcaVeiculo,
-            modeloVeiculo,
-            anoFabricacaoVeiculo
-        };
+        const formData = { ...this.state };
 
         // Seu SERVICE_ID, TEMPLATE_ID e PUBLIC_KEY do EmailJS
         const serviceId = 'YOUR_SERVICE_ID';
@@ -128,9 +167,15 @@ class HomeDashboard extends Component {
             this.setState({
                 isSubmitting: false,
                 submissionMessage: 'Sua solicitação de seguro veicular foi enviada com sucesso! Verifique seu e-mail.',
-                nome: '', email: '', whatsapp: '', cpf: '', dataNascimento: '', estadoCivil: '', sexo: '',
+                // Resetar todos os campos do formulário veicular
+                nomeCompleto: '', email: '', telefoneCelular: '', cpf: '', dataNascimento: '', sexo: '', estadoCivil: '',
                 cep: '', endereco: '', numero: '', complemento: '', bairro: '', cidade: '', estado: '',
-                possuiVeiculo: '', marcaVeiculo: '', modeloVeiculo: '', anoFabricacaoVeiculo: ''
+                possuiVeiculo: '', marcaVeiculo: '', modeloVeiculo: '', anoFabricacao: '', zeroKm: '',
+                utilizacaoVeiculo: '', kmAnual: '', possuiGaragem: '', jaTeveSeguro: '', classeBonus: '',
+                seguradoraAtual: '', renovacaoSeguro: '', condutorPrincipal: '', dataNascimentoCondutor: '',
+                sexoCondutor: '', estadoCivilCondutor: '', habilitacaoCondutor: '', tempoHabilitacao: '',
+                outrosCondutores: '',
+                modelosVeiculoOpcoes: []
             });
             setTimeout(this.handleClosePopupVeicular, 3000); // Fecha o popup após 3 segundos
         } catch (error) {
@@ -151,19 +196,19 @@ class HomeDashboard extends Component {
                     <form onSubmit={this.handleSubmitResidencial}>
                         <div className="form-group">
                             <input
-                                placeholder='Digite Seu Nome'
+                                placeholder='Digite Seu Nome Completo'
                                 type="text"
-                                id="nome"
-                                name="nome"
+                                id="nomeCompleto"
+                                name="nomeCompleto"
                                 className='conteinar-Add-Products-select'
-                                value={this.state.nome}
+                                value={this.state.nomeCompleto}
                                 onChange={this.handleInputChange}
                                 required
                             />
                         </div>
                         <div className="form-group">
                             <input
-                                placeholder='Seu email (exemplo@dominio.com)'
+                                placeholder='Seu Email'
                                 type="email"
                                 className='conteinar-Add-Products-select'
                                 id="email"
@@ -175,12 +220,12 @@ class HomeDashboard extends Component {
                         </div>
                         <div className="form-group">
                             <input
-                                placeholder='Digite seu WhatsApp Ex: (85)99999-XXXX'
+                                placeholder='Digite seu WhatsApp (DDD + Número)'
                                 type="tel"
                                 className='conteinar-Add-Products-select'
-                                id="whatsapp"
-                                name="whatsapp"
-                                value={this.state.whatsapp}
+                                id="telefoneCelular"
+                                name="telefoneCelular"
+                                value={this.state.telefoneCelular}
                                 onChange={this.handleInputChange}
                                 required
                             />
@@ -201,21 +246,23 @@ class HomeDashboard extends Component {
                     <h2 className='popup-title'>Solicite sua cotação de Seguro Veicular</h2>
                     {this.state.submissionMessage && <div className={this.state.formErrors.general ? 'error-message' : 'success-message'}>{this.state.submissionMessage}</div>}
                     <form onSubmit={this.handleSubmitVeicular}>
+                        {/* Dados Pessoais */}
+                        <h3>Dados Pessoais</h3>
                         <div className="form-group">
                             <input
-                                placeholder='Digite Seu Nome Completo'
+                                placeholder='Nome Completo'
                                 type="text"
-                                id="nome"
-                                name="nome"
+                                id="nomeCompleto"
+                                name="nomeCompleto"
                                 className='conteinar-Add-Products-select'
-                                value={this.state.nome}
+                                value={this.state.nomeCompleto}
                                 onChange={this.handleInputChange}
                                 required
                             />
                         </div>
                         <div className="form-group">
                             <input
-                                placeholder='Seu Email'
+                                placeholder='Email'
                                 type="email"
                                 className='conteinar-Add-Products-select'
                                 id="email"
@@ -227,19 +274,19 @@ class HomeDashboard extends Component {
                         </div>
                         <div className="form-group">
                             <input
-                                placeholder='Seu WhatsApp (DDD + Número)'
+                                placeholder='Telefone Celular (DDD + Número)'
                                 type="tel"
                                 className='conteinar-Add-Products-select'
-                                id="whatsapp"
-                                name="whatsapp"
-                                value={this.state.whatsapp}
+                                id="telefoneCelular"
+                                name="telefoneCelular"
+                                value={this.state.telefoneCelular}
                                 onChange={this.handleInputChange}
                                 required
                             />
                         </div>
                         <div className="form-group">
                             <input
-                                placeholder='Digite seu CPF'
+                                placeholder='CPF'
                                 type="text"
                                 id="cpf"
                                 name="cpf"
@@ -263,6 +310,20 @@ class HomeDashboard extends Component {
                         </div>
                         <div className="form-group">
                             <select
+                                id="sexo"
+                                name="sexo"
+                                className='conteinar-Add-Products-select'
+                                value={this.state.sexo}
+                                onChange={this.handleInputChange}
+                                required
+                            >
+                                <option value="">Sexo</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="feminino">Feminino</option>
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <select
                                 id="estadoCivil"
                                 name="estadoCivil"
                                 className='conteinar-Add-Products-select'
@@ -278,20 +339,9 @@ class HomeDashboard extends Component {
                                 <option value="viuvo">Viúvo</option>
                             </select>
                         </div>
-                        <div className="form-group">
-                            <select
-                                id="sexo"
-                                name="sexo"
-                                className='conteinar-Add-Products-select'
-                                value={this.state.sexo}
-                                onChange={this.handleInputChange}
-                                required
-                            >
-                                <option value="">Sexo</option>
-                                <option value="masculino">Masculino</option>
-                                <option value="feminino">Feminino</option>
-                            </select>
-                        </div>
+
+                        {/* Endereço */}
+                        <h3>Endereço</h3>
                         <div className="form-group">
                             <input
                                 placeholder='CEP'
@@ -378,13 +428,16 @@ class HomeDashboard extends Component {
                                 ))}
                             </select>
                         </div>
+
+                        {/* Dados do Veículo */}
+                        <h3>Dados do Veículo</h3>
                         <div className="form-group">
                             <select
                                 id="possuiVeiculo"
                                 name="possuiVeiculo"
                                 className='conteinar-Add-Products-select'
                                 value={this.state.possuiVeiculo}
-                                onChange={this.handleInputChange}
+                                onChange={this.handlePossuiVeiculoChange}
                                 required
                             >
                                 <option value="">Possui Veículo?</option>
@@ -392,6 +445,7 @@ class HomeDashboard extends Component {
                                 <option value="nao">Não</option>
                             </select>
                         </div>
+
                         {this.state.possuiVeiculo === 'sim' && (
                             <>
                                 <div className="form-group">
@@ -400,7 +454,7 @@ class HomeDashboard extends Component {
                                         name="marcaVeiculo"
                                         className='conteinar-Add-Products-select'
                                         value={this.state.marcaVeiculo}
-                                        onChange={this.handleInputChange}
+                                        onChange={this.handleMarcaVeiculoChange}
                                         required
                                     >
                                         <option value="">Marca do Veículo</option>
