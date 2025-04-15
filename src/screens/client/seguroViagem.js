@@ -20,6 +20,7 @@ import Whatsapp from '../../componets/whatsappIcon';
 class HomeDashboard extends Component {
     state = {
         showPopupViagem: false,
+        showPopupIframeViagem: false, // Novo estado para o popup do iframe
         nome: '',
         email: '',
         whatsapp: '',
@@ -29,11 +30,15 @@ class HomeDashboard extends Component {
     };
 
     handleButtonClickViagem = () => {
-        this.setState({ showPopupViagem: true });
+        this.setState({ showPopupIframeViagem: true }); // Abre o popup do iframe
     };
 
     handleClosePopupViagem = () => {
-        this.setState({ showPopupViagem: false });
+        this.setState({ showPopupViagem: false }); // Fechamento do popup de cotação (se ainda precisar)
+    };
+
+    handleClosePopupIframeViagem = () => {
+        this.setState({ showPopupIframeViagem: false }); // Fecha o popup do iframe
     };
 
     handleInputChange = (event) => {
@@ -104,6 +109,23 @@ class HomeDashboard extends Component {
         );
     }
 
+    renderPopupIframeViagem() {
+        return (
+            <div className="popup-overlay" onClick={this.handleClosePopupIframeViagem}>
+                <div className="popup-content popup-iframe" onClick={(e) => e.stopPropagation()}>
+                    <h2 className='popup-title'>Confira as opções de Seguro Viagem</h2>
+                    <iframe
+                        src="https://portal.sulamericaseguros.com.br/seguroviagem/?idLink=CEQKDDZ#plans"
+                        width="100%"
+                        height="500px" // Ajuste a altura conforme necessário
+                        title="Seguro Viagem SulAmérica"
+                    />
+                    <button className="buttonLogin btnFormPopup" onClick={this.handleClosePopupIframeViagem}>Fechar</button>
+                </div>
+            </div>
+        );
+    }
+
     render() {
         return (
             <div className='App-header' >
@@ -147,7 +169,7 @@ class HomeDashboard extends Component {
                             type="button"
                             className='btnHome-lp btnSeguros btnActionSeguros'
                             value="Garanta sua proteção de viagem"
-                            onClick={this.handleButtonClickViagem} // Adicionei o onClick para o novo popup
+                            onClick={this.handleButtonClickViagem} // Agora abre o popup do iframe
                         />
                     </div>
 
@@ -181,8 +203,10 @@ class HomeDashboard extends Component {
                         </div>
                     </div>
 
-                    {/* Renderização condicional do popup de viagem */}
-                    {this.state.showPopupViagem && this.renderPopupViagem()}
+                    {/* Renderização condicional do popup de iframe de viagem */}
+                    {this.state.showPopupIframeViagem && this.renderPopupIframeViagem()}
+                    {/* Renderização condicional do popup de cotação (se ainda precisar) */}
+                    {/* {this.state.showPopupViagem && this.renderPopupViagem()} */}
                 </div>
             </div>
         );
