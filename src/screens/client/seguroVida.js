@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import emailjs from '@emailjs/browser';
 
 // Imagens
 import headerImg from '../../../src/assets/vida.jpeg';
@@ -17,14 +18,32 @@ import Whatsapp from '../../componets/whatsappIcon';
 // Importe o arquivo CSS (certifique-se de que o caminho está correto)
 // import './HomeDashboard.css'; // Se você tiver estilos específicos para esta página
 
+const estadosBrasil = [
+    'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG',
+    'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'
+];
+
 class HomeDashboard extends Component {
     state = {
         showPopupVida: false,
+        tipoSeguro: 'Seguro Vida',
         nome: '',
         email: '',
         whatsapp: '',
-        idade: '',
-        dependentes: ''
+        dataNascimento: '',
+        cpf: '',
+        estadoCivil: '',
+        sexo: '',
+        cep: '',
+        endereco: '',
+        numero: '',
+        complemento: '',
+        bairro: '',
+        cidade: '',
+        estado: '',
+        formErrors: {},
+        isSubmitting: false,
+        submissionMessage: ''
     };
 
     handleButtonClickVida = () => {
@@ -32,7 +51,7 @@ class HomeDashboard extends Component {
     };
 
     handleClosePopupVida = () => {
-        this.setState({ showPopupVida: false });
+        this.setState({ showPopupVida: false, formErrors: {}, submissionMessage: '' });
     };
 
     handleInputChange = (event) => {
@@ -40,15 +59,52 @@ class HomeDashboard extends Component {
         this.setState({ [name]: value });
     };
 
-    handleSubmitVida = (event) => {
+    handleSubmitVida = async (event) => {
         event.preventDefault();
-        const { nome, email, whatsapp, idade, dependentes } = this.state;
+        this.setState({ isSubmitting: true, submissionMessage: '', formErrors: {} });
 
-        console.log('Solicitação de seguro de vida:', { nome, email, whatsapp, idade, dependentes });
-        alert(`Sua solicitação de seguro de vida foi enviada. Verifique seu e-mail (${email}) para mais informações.`);
+        const { nome, email, whatsapp, dataNascimento, cpf, estadoCivil, sexo, cep, endereco, numero, complemento, bairro, cidade, estado } = this.state;
+        const formData = {
+            tipoSeguro: 'Seguro de Vida',
+            nome,
+            email,
+            whatsapp,
+            dataNascimento,
+            cpf,
+            estadoCivil,
+            sexo,
+            cep,
+            endereco,
+            numero,
+            complemento,
+            bairro,
+            cidade,
+            estado
+        };
 
-        this.handleClosePopupVida();
-        this.setState({ nome: '', email: '', whatsapp: '', idade: '', dependentes: '' });
+        // Seu SERVICE_ID, TEMPLATE_ID e PUBLIC_KEY do EmailJS
+        const serviceId = 'service_04m0s8d';
+        const templateId = 'template_p7g0xsi';
+        const publicKey = 'TtE0io7wrvJ8m5Wqq';
+
+        try {
+            const response = await emailjs.send(serviceId, templateId, formData, publicKey);
+            console.log('SUCCESS!', response.status, response.text);
+            this.setState({
+                isSubmitting: false,
+                submissionMessage: 'Sua solicitação foi enviada com sucesso! Verifique seu e-mail.', tipoSeguro: 'Seguro Vida',
+                nome: '', email: '', whatsapp: '', dataNascimento: '', cpf: '', estadoCivil: '', sexo: '',
+                cep: '', endereco: '', numero: '', complemento: '', bairro: '', cidade: '', estado: ''
+            });
+            setTimeout(this.handleClosePopupVida, 3000); // Fecha o popup após 3 segundos
+        } catch (error) {
+            console.log('FAILED...', error);
+            this.setState({
+                isSubmitting: false,
+                submissionMessage: 'Houve um erro ao enviar sua solicitação. Por favor, tente novamente.',
+                formErrors: { general: 'Erro ao enviar o formulário.' }
+            });
+        }
     };
 
     renderPopupVida() {
@@ -56,6 +112,7 @@ class HomeDashboard extends Component {
             <div className="popup-overlay" onClick={this.handleClosePopupVida}>
                 <div className="popup-content section-home-1" onClick={(e) => e.stopPropagation()}>
                     <h2 className='popup-title'>Solicite sua cotação de Seguro de Vida</h2>
+                    {this.state.submissionMessage && <div className={this.state.formErrors.general ? 'error-message' : 'success-message'}>{this.state.submissionMessage}</div>}
                     <form onSubmit={this.handleSubmitVida}>
                         <div className="form-group">
                             <input
@@ -94,31 +151,150 @@ class HomeDashboard extends Component {
                             />
                         </div>
                         <div className="form-group">
+                            <label htmlFor="dataNascimento" className='popup-label'>Data de Nascimento:</label><br/>
                             <input
-                                placeholder='Sua Idade'
-                                type="number"
-                                id="idade"
-                                name="idade"
+                                type="date"
+                                id="dataNascimento"
+                                name="dataNascimento"
                                 className='conteinar-Add-Products-select'
-                                value={this.state.idade}
+                                value={this.state.dataNascimento}
                                 onChange={this.handleInputChange}
                                 required
                             />
                         </div>
                         <div className="form-group">
                             <input
-                                placeholder='Número de Dependentes'
-                                type="number"
-                                id="dependentes"
-                                name="dependentes"
+                                type="text"
+                                id="cpf"
+                                name="cpf"
+                                placeholder='Digite seu CPF'
                                 className='conteinar-Add-Products-select'
-                                value={this.state.dependentes}
+                                value={this.state.cpf}
                                 onChange={this.handleInputChange}
                                 required
                             />
                         </div>
+                        <div className="form-group">
+                            <select
+                                id="estadoCivil"
+                                name="estadoCivil"
+                                className='conteinar-Add-Products-select'
+                                value={this.state.estadoCivil}
+                                onChange={this.handleInputChange}
+                                required
+                            >
+                                <option value="">Estado Civil</option>
+                                <option value="solteiro">Solteiro</option>
+                                <option value="casado">Casado</option>
+                                <option value="separado">Separado</option>
+                                <option value="divorciado">Divorciado</option>
+                                <option value="viuvo">Viúvo</option>
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <select
+                                id="sexo"
+                                name="sexo"
+                                className='conteinar-Add-Products-select'
+                                value={this.state.sexo}
+                                onChange={this.handleInputChange}
+                                required
+                            >
+                                <option value="">Sexo</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="feminino">Feminino</option>
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                id="cep"
+                                name="cep"
+                                placeholder='Digite seu CEP'
+                                className='conteinar-Add-Products-select'
+                                value={this.state.cep}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                id="endereco"
+                                name="endereco"
+                                placeholder='Rua, Avenida...'
+                                className='conteinar-Add-Products-select'
+                                value={this.state.endereco}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                id="numero"
+                                name="numero"
+                                placeholder='Número'
+                                className='conteinar-Add-Products-select'
+                                value={this.state.numero}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                id="complemento"
+                                name="complemento"
+                                placeholder='Apartamento, Bloco...'
+                                className='conteinar-Add-Products-select'
+                                value={this.state.complemento}
+                                onChange={this.handleInputChange}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                id="bairro"
+                                name="bairro"
+                                placeholder='Seu Bairro'
+                                className='conteinar-Add-Products-select'
+                                value={this.state.bairro}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                id="cidade"
+                                name="cidade"
+                                placeholder='Sua Cidade'
+                                className='conteinar-Add-Products-select'
+                                value={this.state.cidade}
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <select
+                                id="estado"
+                                name="estado"
+                                className='conteinar-Add-Products-select'
+                                value={this.state.estado}
+                                onChange={this.handleInputChange}
+                                required
+                            >
+                                <option value="">Estado</option>
+                                {estadosBrasil.map(estado => (
+                                    <option key={estado} value={estado}>{estado}</option>
+                                ))}
+                            </select>
+                        </div>
                         <div className="popup-buttons">
-                            <button type="submit" className='buttonLogin btnFormPopup'>Enviar Solicitação</button>
+                            <button type="submit" className='buttonLogin btnFormPopup' disabled={this.state.isSubmitting}>
+                                {this.state.isSubmitting ? 'Enviando...' : 'Enviar Solicitação'}
+                            </button>
                         </div>
                     </form>
                 </div>

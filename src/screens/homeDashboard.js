@@ -34,6 +34,7 @@ class HomeDashboard extends Component {
         whatsapp: ''
     };
 
+
     handleButtonClick = () => {
         this.setState({ showPopup: true });
     };
@@ -50,6 +51,7 @@ class HomeDashboard extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const { nome, email, whatsapp } = this.state;
+        
 
         // Simulação de envio de e-mail (você precisará de uma API real para isso)
         console.log('Enviando solicitação para o administrador:', { nome, email, whatsapp });
@@ -62,8 +64,8 @@ class HomeDashboard extends Component {
 
     renderPopup() {
         return (
-            <div className="popup-overlay" onClick={this.handleClosePopup}> 
-                <div className="popup-content section-home-1" onClick={(e) => e.stopPropagation()}> 
+            <div className="popup-overlay" onClick={this.handleClosePopup}>
+                <div className="popup-content section-home-1" onClick={(e) => e.stopPropagation()}>
                     <h2 className='popup-title'>Solicite sua cotação</h2>
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
@@ -197,7 +199,7 @@ class HomeDashboard extends Component {
                             </div>
                         </div>
 
-                        <input type="button" value="Realize sua cotação agora mesmo." className='btnSec2'  onClick={this.handleButtonClick}/>
+                        <input type="button" value="Realize sua cotação agora mesmo." className='btnSec2' onClick={this.handleButtonClick} />
                     </div>
 
                     <div className='section-home-3'>
