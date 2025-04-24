@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // Imagens
-import headerImg from '../../../src/assets/residencia.avif';
+import headerImg from '../../../src/assets/residencial.jpg';
 
 // Ícones
 import {

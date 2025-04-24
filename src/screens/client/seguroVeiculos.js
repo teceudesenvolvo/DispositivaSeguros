@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import emailjs from '@emailjs/browser';
 
 // Imagens
-import headerImgVeicular from '../../../src/assets/veicular.jpg';
+import headerImgVeicular from '../../../src/assets/veicular.png';
 
 // Ícones
 import {
