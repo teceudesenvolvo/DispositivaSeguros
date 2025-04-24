@@ -3,9 +3,9 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
 // Imagens
-import headerImg1 from '../../src/assets/veicular.jpg';
-import headerImg2 from '../../src/assets/residencia.avif';
-import headerImg3 from '../../src/assets/vida.jpeg';
+import headerImg1 from '../../src/assets/veicular.png';
+import headerImg2 from '../../src/assets/residencial.jpg';
+import headerImg3 from '../../src/assets/vida.jpg';
 import headerImg4 from '../../src/assets/viagem.jpg';
 
 // Ícones

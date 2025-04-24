@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import emailjs from '@emailjs/browser';
 
 // Imagens
-import headerImg from '../../../src/assets/vida.jpeg';
+import headerImg from '../../../src/assets/vida.jpg';
 
 // Ícones
 import {
